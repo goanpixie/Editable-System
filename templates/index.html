@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Friend</title>
+</head>
+<link rel="stylesheet" href='{{url_for('static',filename='style.css')}}'>
+<body>
+<form action="/friends" method="POST" class="form">
+First Name:<input type="text" name="f_name" maxlength="15" pattern='[a-zA-Z]*$' autofocus>
+Last Name:<input type="text" name="l_name" maxlength="15" pattern='[a-zA-Z]*$' autofocus>
+Email:<input type="email" name="email" pattern='[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$' autofocus>	
+<input type="submit" value="Submit">
+</form>
+
+<br><br><br>
+<b>Friends:</b>
+
+{%for friend in friends:%}
+<p>{{friend['first_name']}}&nbsp;{{friend['last_name']}}
+
+<form action="/friends/{{friend['id']}}/edit" method="GET"><button>Edit</button></form>
+
+<form action="/friends/{{friend['id']}}/delete" method="POST"><button>Delete</button></form>
+
+
+</p>
+{%endfor%}
+
+
+</body>
+</html>

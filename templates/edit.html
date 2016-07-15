@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Page</title>
+</head>
+<body>
+
+<form action="/friends/{{friend_id}}" method="POST">
+First Name:<input type="text" name="f_name" pattern='[a-zA-Z]*$'>
+Last Name:<input type="text" name="l_name" pattern='[a-zA-Z]*$'>
+Email:<input type="email" name="email">	
+<input type="submit" value ="Update">
+</form>
+
+</body>
+</html>
